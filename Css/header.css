@@ -1,0 +1,11 @@
+/* HEADER */
+header{
+    background: #38B6FF;
+    padding: 1%;
+    text-align: left;
+}
+
+header img{
+    width: 70px;
+    margin-left: 10%;
+}
