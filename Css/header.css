@@ -48,6 +48,7 @@ header{
 
 .carrito-pedido button{
     background: #38B6FF;
+    outline:none;
     border: none;
 }
 

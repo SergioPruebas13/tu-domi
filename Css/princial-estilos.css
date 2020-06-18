@@ -10,6 +10,12 @@
 }
 
 /* CONTAINER-PRINCIPAL */
+
+.container-body{
+    margin-top: 13vh;
+}
+
+
 /* PRINCIPAL-SECCION */
 
 .principal{
@@ -25,18 +31,18 @@
     flex-direction: column-reverse;
 }
 
-#buscar-categoria{
+/* #buscar-categoria{
     background: #2F353A;
     color: #fff;
     padding: 1.5%;
     border: none;
     margin-bottom: 1.5%;
-}
+} */
 
 #categorias-productos{
     width: 70%;
     padding: 2%;
-    margin-bottom: 1.5%;
+    margin-bottom: 2.2%;
    
 }
 

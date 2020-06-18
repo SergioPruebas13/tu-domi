@@ -10,9 +10,13 @@ function main (){
      get_data();   
     
     // Seleccionar menu de categoria  
-     $('body').on('click', '#categoria-menu-but', function(){
+    //  $('body').on('click', '#categoria-menu-but', function(){
+    //     cargar_categorias_menu();
+    // }) 
+
+    $('body').on('change', '#categoria-menu-combobox', function(){
         cargar_categorias_menu();
-    }) 
+    });
 
      //-------------------Llamada a la funcion de Mostrar carrito 
      $('body').on('click', '#button-tiket', function(){
@@ -40,7 +44,7 @@ function get_data (){
     var url = window.location.search;
     var url_id = url.split(`?id=`).join("");
    
-    var url = "https://sergiopruebas13.github.io/tu-domi/Data/data-base.json";    
+    var url = "http://127.0.0.1:5500/Data/data-base.json";    
         fetch(url)
         .then(function(res){
             return res.json();
