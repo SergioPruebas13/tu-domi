@@ -59,7 +59,7 @@ function cargar_data (data){
                         </p>
                     </div>
                     <div class="ver-menu">
-                        <a href="/Menu/menu.html?id=${data[i].id_obj}">Ver Menú</a>
+                        <a href="/tu-domi/Menu/menu.html?id=${data[i].id_obj}">Ver Menú</a>
                     </div>
                 </div>
                 `;
