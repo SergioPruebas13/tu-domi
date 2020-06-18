@@ -34,283 +34,342 @@
                 },
             "menu":
                 [
-                    {
+                    {   
+                        "id_menu": 1, 
                         "categoria_menu": "pollo apanado",
                         "descripcion_menu":
                             [
                                 {
+                                    "id_descripcion_menu": 1,
                                     "nombre": "personal",
                                     "descripcion": "2 piezas de pollo apanado",
                                     "valor": 5800
                                 },
                                 {
+                                    "id_descripcion_menu": 2,
                                     "nombre": "pareja",
                                     "descripcion": "4 piezas de pollo apanado",
                                     "valor": 10500
                                 },
                                 {
+                                    "id_descripcion_menu": 3,
                                     "nombre": "amigos",
                                     "descripcion": "6 piezas de pollo apanado",
                                     "valor": 15000
                                 },
                                 {
+                                    "id_descripcion_menu": 4,
                                     "nombre": "familiar",
                                     "descripcion": "8 piezas de pollo apanado",
                                     "valor": 20000
                                 },
                                 {
+                                    "id_descripcion_menu": 5,
                                     "nombre": "mega familiar",
                                     "descripcion": "12 piezas de pollo apanado",
                                     "valor": 29900
                                 },
                                 {
+                                    "id_descripcion_menu": 6,
                                     "nombre": "combo personal",
                                     "descripcion": "2 piezas de pollo apanado, papa a la francesa, croquetas de yuca y patacón",
                                     "valor": 11400
                                 },
                                 {
+                                    "id_descripcion_menu": 7,
                                     "nombre": "combo pareja",
                                     "descripcion": "4 piezas de pollo apanado, papa a la francesa, croquetas de yuca, patacón",
                                     "valor": 16600
                                 },
                                 {
+                                    "id_descripcion_menu": 8,
                                     "nombre": "combo amigos",
                                     "descripcion": "6 piezas de pollo apanado, papa a la francesa, croquetas de yuca, patacón",
                                     "valor": 21500
                                 },
                                 {
+                                    "id_descripcion_menu": 9,
                                     "nombre": "combo familiar",
                                     "descripcion": "8 piezas de pollo apanado, papa a la francesa, croquetas de yuca, patacón",
                                     "valor": 26100
                                 },
                                 {
+                                    "id_descripcion_menu": 10,
                                     "nombre": "combo mega familiar",
                                     "descripcion": "12 piezas de pollo apanado, papa a la francesa X2, croquetas de yucX2, patacón X2",
                                     "valor": 41700
                                 }
                             ]
                     },
-                    {
+                    {   
+                        "id_menu": 2,
                         "categoria_menu": "alitas",
                         "descripcion_menu":
                             [
                                 {
+                                    "id_descripcion_menu": 1,
                                     "nombre": "alitas para uno",
                                     "descripcion": "10 Piezas de alitas en una salsa",
                                     "valor": 12100
                                 },
                                 {
+                                    "id_descripcion_menu": 2,
                                     "nombre": "alitas para dos",
                                     "descripcion": "20 Piezas de alitas en una salsa",
                                     "valor": 21000
                                 },
                                 {
+                                    "id_descripcion_menu": 3,
                                     "nombre": "alitas para tres",
                                     "descripcion": "30 piezas de alitas en dos salsas",
                                     "valor": 30500
                                 },
                                 {
+                                    "id_descripcion_menu": 4,
                                     "nombre": "alitas para todos",
                                     "descripcion": "40 piezas de alitas en dos salsas",
                                     "valor": 39500
                                 },
                                 {
+                                    "id_descripcion_menu": 5,
                                     "nombre": "alitas one",
                                     "descripcion": "10 piezas de alitas en una salta, 1 acompañamiento",
                                     "valor": 15700
                                 },
                                 {
+                                    "id_descripcion_menu": 6,
                                     "nombre": "alitas duo",
                                     "descripcion": "20 Piezas de alitas en una salsa, 1 acompañamiento",
                                     "valor": 24800
                                 },
                                 {
+                                    "id_descripcion_menu": 7,
                                     "nombre": "alitas trio",
                                     "descripcion": "30 piezas de alitas en dos salsas, 1 acompañamiento",
                                     "valor": 33800
                                 },
                                 {
+                                    "id_descripcion_menu": 8,
                                     "nombre": "alitas mega",
                                     "descripcion": "40 piezas de alitas en 2 salsas, 2 acompañamientos",
                                     "valor": 46200
                                 }
                             ]
                     },
-                    {
+                    {   
+                        "id_menu": 3,
                         "categoria_menu": "platillos",
                         "descripcion_menu":
                             [
                                 {
+                                    "id_descripcion_menu": 1,
                                     "nombre": "plato facil",
                                     "descripcion": "5 piezas de alitas, arroz, ensalada, media porción de papa en cascos",
                                     "valor": 8900
                                 },
                                 {
+                                    "id_descripcion_menu": 2,
                                     "nombre": "bandeja liviana",
                                     "descripcion": "2 presas de pollo apanado, papa a l afrancesa y ensalada",
                                     "valor": 10700
                                 },
                                 {
+                                    "id_descripcion_menu": 3,
                                     "nombre": "bandeja con pollo",
                                     "descripcion": "2 presas de pollo apanado, papa a la francesa, arroz, ensalada y patacón",
                                     "valor": 11100
                                 },
                                 {
+                                    "id_descripcion_menu": 4,
                                     "nombre": "costillas BBQ",
                                     "descripcion": "Costillas de cerdo bañadas en salsa BBQ, papa al francesa, croquetas de yuca y patacón",
                                     "valor": 18300
                                 }
                             ]
                     },
-                    {
+                    {   
+                        "id_menu": 4,
                         "categoria_menu": "bebidas",
                         "descripcion_menu":
                             [
                                 {
+                                    "id_descripcion_menu": 1,
                                     "nombre": "gaseosa personal",
                                     "descripcion": "",
                                     "valor": 2600
                                 },
                                 {
+                                    "id_descripcion_menu": 2,
                                     "nombre": "gaseosa 600 ml",
                                     "descripcion": "",
                                     "valor": 3500
                                 },
                                 {
+                                    "id_descripcion_menu": 3,
                                     "nombre": "gaseosa 1.5 L",
                                     "descripcion": "",
                                     "valor": 5200
                                 },
                                 {
+                                    "id_descripcion_menu": 4,
                                     "nombre": "agua",
                                     "descripcion": "",
                                     "valor": 2800
                                 },
                                 {
+                                    "id_descripcion_menu": 5,
                                     "nombre": "cola y pola",
                                     "descripcion": "",
                                     "valor": 3900
                                 },
                                 {
+                                    "id_descripcion_menu": 6,
                                     "nombre": "cerceza",
                                     "descripcion": "",
                                     "valor": 3900
                                 },
                                 {
+                                    "id_descripcion_menu": 7,
                                     "nombre": "malta",
                                     "descripcion": "",
                                     "valor": 3900
                                 }
                             ]
                     },
-                    {
+                    { 
+                        "id_menu": 5,  
+                        
                         "categoria_menu": "adicionales",
                         "descripcion_menu":
                             [
                                 {
+                                    "id_descripcion_menu": 1,
                                     "nombre": "papa al francesa",
                                     "descripcion": "",
                                     "valor": 3700
                                 },
                                 {
+                                    "id_descripcion_menu": 2,
                                     "nombre": "papa en casquillo",
                                     "descripcion": "",
                                     "valor": 3700
                                 },
                                 {
+                                    "id_descripcion_menu": 3,
                                     "nombre": "papa criolla",
                                     "descripcion": "",
                                     "valor": 3700
                                 },
                                 {
+                                    "id_descripcion_menu": 4,
                                     "nombre": "croquetas de yuca",
                                     "descripcion": "",
                                     "valor": 3700
                                 },
                                 {
+                                    "id_descripcion_menu": 5,
                                     "nombre": "patacon",
                                     "descripcion": "",
                                     "valor": 3700
                                 },
                                 {
+                                    "id_descripcion_menu": 6,
                                     "nombre": "arroz",
                                     "descripcion": "",
                                     "valor": 2100
                                 },
                                 {
+                                    "id_descripcion_menu": 7,
                                     "nombre": "enzalada",
                                     "descripcion": "",
                                     "valor": 3700
                                 },
                                 {
+                                    "id_descripcion_menu": 8,
                                     "nombre": "mixta",
                                     "descripcion": "papa a la francesa, croquetas de yuca y patacón",
                                     "valor": 6400
                                 },
                                 {
+                                    "id_descripcion_menu": 9,
                                     "nombre": "papa salada",
                                     "descripcion": "",
                                     "valor": 3700
                                 }
                             ]
                     },
-                    {
+                    {   
+                        "id_menu": 6,
+                        
                         "categoria_menu": "pollo asado",
                         "descripcion_menu":
                             [
                                 {
+                                    "id_descripcion_menu": 1,
                                     "nombre": "pareja [ pollo asado ]",
                                     "descripcion": "1/2 pollo asado",
                                     "valor": 10500
                                 },
                                 {
+                                    "id_descripcion_menu": 2,
                                     "nombre": "familiar [ pollo asado ]",
                                     "descripcion": "1 pollo asado",
                                     "valor": 20000
                                 },
                                 {
+                                    "id_descripcion_menu": 3,
                                     "nombre": "mega familiar [ pollo asado ]",
                                     "descripcion": "1 y 1/2 pollo asado",
                                     "valor": 29900
                                 },
                                 {
+                                    "id_descripcion_menu": 4,
                                     "nombre": "combo pareja [ pollo asado ]",
                                     "descripcion": "1/2 pollo asado, papa a la francesa, croquetas de yuca y patacon.",
                                     "valor": 16600
                                 },
                                 {
+                                    "id_descripcion_menu": 5,
                                     "nombre": "combo familiar [ pollo asado ]",
                                     "descripcion": "1 pollo asado, papa a la francesa, croquetas de yuca y patacón.",
                                     "valor": 26100
                                 },
                                 {
+                                    "id_descripcion_menu": 6,
                                     "nombre": "combo mega familiar [ pollo asado ]",
                                     "descripcion": "1 y 1/2 pollo asado, papa a la francesa, croquetas de yuca y patacón.",
                                     "valor": 41700
                                 }
                             ]
                     },
-                    {
+                    {   
+                        "id_menu": 7,
+                        
                         "categoria_menu": "papas cheddar",
                         "descripcion_menu":
                             [
                                 {
+                                    "id_descripcion_menu": 1,
                                     "nombre": "bacon & cheddar",
                                     "descripcion": "Papa a la francesa en queso cheddar con trocitos de tocineta.",
                                     "valor": 13500
                                 }
                             ]
                     },
-                    {
+                    {  
+                        "id_menu": 8, 
+                        
                         "categoria_menu": "festival",
                         "descripcion_menu":
                             [
                                 {
+                                    "id_descripcion_menu": 1,
                                     "nombre": "combo festival",
                                     "descripcion": "1 pollo familiar, papa a la francesa bañada en queso cheddar con trocitos de tocineta.",
                                     "valor": 33300
                                 },
                                 {
+                                    "id_descripcion_menu": 2,
                                     "nombre": "alitas festival",
                                     "descripcion": "20 piezas de alitas, papa a la francesa bañada en queso cheddar con trocitos de tocineta.",
                                     "valor": 34300

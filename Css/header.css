@@ -1,11 +1,54 @@
 /* HEADER */
 header{
     background: #38B6FF;
-    padding: 1%;
     text-align: left;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100vw;
+    height: 11.5vh;
 }
 
-header img{
-    width: 70px;
-    margin-left: 10%;
+.naver{
+    /* background: red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+
+.logo-naver{
+    /* background: yellow; */
+    width: 30%;
+    text-align: center;
+}
+
+.logo-naver img{
+    width: 70px;
+}
+
+.redes-naver{
+    width:40%;
+    text-align: center;
+}
+
+.redes-naver img{
+    margin-left: 3%;
+    width: 40px;
+}
+
+.carrito-pedido{
+    text-align: center;
+    width: 30%;
+}
+
+.carrito-pedido img{
+    width: 50px;
+}
+
+.carrito-pedido button{
+    background: #38B6FF;
+    border: none;
+}
+
+

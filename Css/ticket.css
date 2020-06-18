@@ -1,0 +1,118 @@
+.pedido-tiket{
+    display: none;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: calc(100% - 11.5vh);
+    z-index: 100;
+    margin-top: 11.5vh;
+}
+
+.Active{
+    display: block;
+}
+
+.container-tiket{
+    /* background: yellow; */
+    height: 97%;
+    /* Flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cabecera-tiket{
+    background: #2F353A;
+    color: #fff;
+    width: 100%;
+    height: 7%;
+    /* flex */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.principal-tiket-scroll{
+    /* background: brown; */
+    width: 100%;
+    height: 83%;
+    overflow: scroll;
+}
+
+.descripcion-tiket{
+    width: 100%;
+    height: 10%;
+    text-align: center;
+}
+
+.total-tiket{
+    padding: 1.3%;
+    text-align: right;
+}
+
+.total-tiket span{
+    margin-right: 20%;
+}
+
+.butt{
+    height: 2.6em;
+}
+
+.button-tiket{
+    background: #2F353A;
+    color: #fff;
+    border: none;
+    height: 100%;
+    width: 100%;
+}
+
+/* Productos Enlistados  */
+
+.productos-enlistados{
+    background: #c0c0c0;
+    padding: 4%;
+    margin: 2%;
+    border-radius: 3px;
+    /* Flex */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.productos-enlistados-descripcion{
+    width: 95%;
+    margin-right: 2%;
+    text-align: justify;
+} 
+
+.productos-enlistados-descripcion strong{
+    float: left;
+}
+
+
+
+.producto-enlistados{
+    width: 20%;
+}
+
+.pedido-enlistar{
+    width: 95%;
+    padding: 5%;
+
+    /* Flex */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pedido-enlistar button{
+    background: #d86060;
+    color: #fff;
+    border: none;
+    padding: 3%;
+}  
+
+/* ------------------ */

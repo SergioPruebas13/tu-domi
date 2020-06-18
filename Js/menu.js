@@ -3,6 +3,7 @@ $(document).ready(main);
 var main_productos = [];
 var categoria_menu_array = [];
 var id_obj,descripcion_obj,categoria_obj,menu_obj;
+var check_Cart = 0;
 
 function main (){
     // Obtener los datos de JSON
@@ -12,6 +13,26 @@ function main (){
      $('body').on('click', '#categoria-menu-but', function(){
         cargar_categorias_menu();
     }) 
+
+     //-------------------Llamada a la funcion de Mostrar carrito 
+     $('body').on('click', '#button-tiket', function(){
+        if (check_Cart==0) {
+            $('.pedido-tiket').addClass('Active');
+            check_Cart=1;
+        }
+        else{
+            $('.pedido-tiket').removeClass('Active');
+            check_Cart=0;
+        }      
+    })
+
+    // --------------------------Llamada a la funcion de Añadir a Pedido
+    $('body').on('click', '.pedido-anadir-butt', function(){
+        var id_desc_menu = $(this).attr('id_desc_menu');
+        enlistar_producto_menu(id_desc_menu);
+    }) 
+
+    
 }
 
 function get_data (){
@@ -19,7 +40,7 @@ function get_data (){
     var url = window.location.search;
     var url_id = url.split(`?id=`).join("");
    
-    var url = "https://sergiopruebas13.github.io/tu-domi/Data/data-base.json";
+    var url = "http://127.0.0.1:5500/Data/data-base.json";    
         fetch(url)
         .then(function(res){
             return res.json();
@@ -88,7 +109,7 @@ function cargar_categorias_menu (){
     var arra_temp_menu =[];
 
     console.log(selec.value);
-    console.log(categoria_menu_array);
+    console.log(categoria_menu_array[5].descripcion_menu);
 
     for (let i = 0; i < categoria_menu_array.length; i++) {
        if (selec.value.toLowerCase() == categoria_menu_array[i].categoria_menu) {
@@ -111,7 +132,7 @@ function cargar_categorias_menu (){
                                 </div>
                                 <div class="pedido-anadir">
                                     <h4>Precio: <span>$ ${new Intl.NumberFormat().format(arra_temp_menu[i].valor)}</span></h4>
-                                    <button id="pedido-anadir-butt">Añadir a Pedido</button>
+                                    <button class="pedido-anadir-butt" id_desc_menu="${arra_temp_menu[i].id_descripcion_menu}" >Añadir a Pedido</button>
                                 </div>
                             </div>
                                 `;
@@ -135,5 +156,48 @@ function cargar_categorias_menu (){
     }
 
      
+}
+
+function enlistar_producto_menu (id_menu_comparar){
+
+    var principal_tiket_scroll = document.getElementById('principal-tiket-scroll');
+    var selec = document.querySelector('#categoria-menu-combobox');
+    var html = "";
+    var band = 0;
+    var arra_temp_menu =[];
+
+
+    for (let i = 0; i < categoria_menu_array.length; i++) {
+       if (selec.value.toLowerCase() == categoria_menu_array[i].categoria_menu) {
+            arra_temp_menu = categoria_menu_array[i].descripcion_menu;
+            if (arra_temp_menu == undefined) {
+                band = 1;
+            }
+            else
+            {
+                for (let i = 0; i < arra_temp_menu.length; i++) {
+                    if (arra_temp_menu[i].id_descripcion_menu == id_menu_comparar) {
+                        html +=  
+                            `
+                            <div class="productos-enlistados">
+                                <div class="productos-enlistados-descripcion">
+                                    <p>
+                                        <strong>${arra_temp_menu[i].nombre.replace(/\b[a-z]/g,c=>c.toUpperCase())}</strong> <br><br>
+                                        <span>${arra_temp_menu[i].descripcion}</span>
+                                    </p>
+                                </div>
+                                <div class="pedido-enlistar">
+                                    <h4>Precio: <span>$ ${new Intl.NumberFormat().format(arra_temp_menu[i].valor)}</span></h4>
+                                    <button id="${arra_temp_menu[i].id_descripcion_menu}">Eliminar de Pedido</button>
+                                </div>
+                            </div>
+                            `;
+                    }
+                }
+            }            
+        }
+    }
+        console.log(html);
+        principal_tiket_scroll.innerHTML += html;
 }
 

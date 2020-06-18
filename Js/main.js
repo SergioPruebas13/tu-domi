@@ -19,7 +19,8 @@ function get_data (){
     var array_temp =[];
     
    
-    var url = "https://sergiopruebas13.github.io/tu-domi/Data/data-base.json";
+    var url = "http://127.0.0.1:5500/Data/data-base.json";
+    
         fetch(url)
         .then(function(res){
             return res.json();
@@ -58,7 +59,7 @@ function cargar_data (data){
                         </p>
                     </div>
                     <div class="ver-menu">
-                        <a href="/tu-domi/Menu/menu.html?id=${data[i].id_obj}">Ver Menú</a>
+                        <a href="/Menu/menu.html?id=${data[i].id_obj}">Ver Menú</a>
                     </div>
                 </div>
                 `;
