@@ -19,7 +19,7 @@ function get_data (){
     var array_temp =[];
     
    
-    var url = "http://127.0.0.1:5500/Data/data-base.json";
+    var url = "https://sergiopruebas13.github.io/tu-domi/Data/data-base.json";
     
         fetch(url)
         .then(function(res){
