@@ -40,7 +40,7 @@ function get_data (){
     var url = window.location.search;
     var url_id = url.split(`?id=`).join("");
    
-    var url = "http://127.0.0.1:5500/Data/data-base.json";    
+    var url = "https://sergiopruebas13.github.io/tu-domi/Data/data-base.json";    
         fetch(url)
         .then(function(res){
             return res.json();
