@@ -3,6 +3,7 @@ $(document).ready(main);
 var main_productos = [];
 var categoria_menu_array = [];
 var id_obj,descripcion_obj,categoria_obj,menu_obj;
+var nombre_menu , descripcion_menu , valor_menu , id_menu;
 var check_Cart = 0;
 
 function main (){
@@ -33,7 +34,8 @@ function main (){
     // --------------------------Llamada a la funcion de Añadir a Pedido
     $('body').on('click', '.pedido-anadir-butt', function(){
         var id_desc_menu = $(this).attr('id_desc_menu');
-        enlistar_producto_menu(id_desc_menu);
+        // enlistar_producto_menu(id_desc_menu);
+        GuardarDatosLS(id_desc_menu);
     }) 
 
     
@@ -44,7 +46,7 @@ function get_data (){
     var url = window.location.search;
     var url_id = url.split(`?id=`).join("");
    
-    var url = "https://sergiopruebas13.github.io/tu-domi/Data/data-base.json";    
+    var url = "http://127.0.0.1:5500/Data/data-base.json";    
         fetch(url)
         .then(function(res){
             return res.json();
@@ -162,6 +164,61 @@ function cargar_categorias_menu (){
      
 }
 
+// GUARDAR DATOS AL LS
+function GuardarDatosLS(id_del_producto){
+
+    var selec = document.querySelector('#categoria-menu-combobox');
+    var band = 0;
+    var arra_temp_menu =[];
+    var productos_Carro;
+    var id_repetido;
+    
+    for (let i = 0; i < categoria_menu_array.length; i++) {
+        if (selec.value.toLowerCase() == categoria_menu_array[i].categoria_menu) {
+             arra_temp_menu = categoria_menu_array[i].descripcion_menu;
+             if (arra_temp_menu == undefined) {
+                 band = 1;
+             }
+             else
+             {
+                 for (let i = 0; i < arra_temp_menu.length; i++) {
+                     if (arra_temp_menu[i].id_descripcion_menu == id_del_producto) {
+                         productos_Carro = 
+                            {
+                                id_menu: `${selec.value.toLowerCase()}${arra_temp_menu[i].id_descripcion_menu}`,
+                                nombre_menu: arra_temp_menu[i].nombre,
+                                descripcion_menu: arra_temp_menu[i].descripcion,
+                                valor_menu: arra_temp_menu[i].valor
+                            }
+                            console.log(productos_Carro);
+                            id_repetido = productos_Carro.id_menu;
+                            console.log(id_repetido);
+                            // var prueba = productos_Carro.id_menu.split(`${selec.value.toLowerCase()}`).join("");
+                            // console.log(prueba);
+                     }
+                 }
+             }            
+         }
+     }
+
+        if (localStorage.getItem('product_cart_menu') === null) {
+            let product_cart_menu = [];
+            product_cart_menu.push(productos_Carro);
+            localStorage.setItem('product_cart_menu', JSON.stringify(product_cart_menu));
+                CargarDatosLS();
+        }else{
+            let product_cart_menu = JSON.parse(localStorage.getItem('product_cart_menu'));
+            var verificar = buscarRepetido(id_repetido);
+
+            // console.log(verificar)
+            if (verificar == 0) {
+                product_cart_menu.push(productos_Carro);
+                localStorage.setItem('product_cart_menu', JSON.stringify(product_cart_menu));
+                CargarDatosLS();
+            }   
+        }
+} 
+
 function enlistar_producto_menu (id_menu_comparar){
 
     var principal_tiket_scroll = document.getElementById('principal-tiket-scroll');
@@ -204,4 +261,58 @@ function enlistar_producto_menu (id_menu_comparar){
         console.log(html);
         principal_tiket_scroll.innerHTML += html;
 }
+
+//-----------------------Cargar Datos del Carrito de Compras en el LS
+function CargarDatosLS(){
+    
+    var product_cart_menu = JSON.parse(localStorage.getItem('product_cart_menu'));
+    let principal_tiket_scroll = document.getElementById('principal-tiket-scroll');
+
+    if (product_cart_menu==null) {
+        
+    }else{
+        principal_tiket_scroll.innerHTML = "";
+        for (let i = 0; i < product_cart_menu.length; i++) {
+            principal_tiket_scroll.innerHTML += 
+                    `
+                    <div class="productos-enlistados">
+                        <div class="productos-enlistados-descripcion">
+                            <p>
+                                <strong>${product_cart_menu[i].nombre_menu.replace(/\b[a-z]/g,c=>c.toUpperCase())}</strong> <br><br>
+                                <span>${product_cart_menu[i].descripcion_menu}</span>
+                            </p>
+                        </div>
+                        <div class="cantidad">
+                            <input type="number" class="Canti"  max="100" min="1" value="1" id="monda">
+                        </div> 
+                        <div class="pedido-enlistar">
+                            <h4>Precio: <span>$ ${new Intl.NumberFormat().format(product_cart_menu[i].valor_menu)}</span></h4>
+                            <button id="${product_cart_menu[i].id_menu}">Eliminar de Pedido</button>
+                        </div>
+                    </div>
+                    `;
+        }
+    }  
+}
+
+// //------------------------Funcion para Buscar si hay productos repetidos 
+function  buscarRepetido(id_del_producto){
+    var bol = 0;
+    var dos = id_del_producto;
+    let product_cart = JSON.parse(localStorage.getItem('product_cart_menu'));
+
+    for (let i = 0; i < product_cart.length; i++) {
+        var uno = product_cart[i].id_menu;
+        
+        if (uno == dos) {
+            // console.log('No haga nada')
+            bol=1;
+        }else{
+            // console.log('Ingrese Nuevo Producto')
+        }
+    }
+
+    return bol;
+}
+
 
