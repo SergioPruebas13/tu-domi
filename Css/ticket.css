@@ -56,14 +56,31 @@
     width: 90%;
 }
 
-.total-tiket{
+.total-limpiar{
     width: 90%;
-    padding: 0.6em;
-    text-align: right;
+
+    /* Flex */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.total-tiket span{
-    margin-right: 20%;
+.total-tiket{
+    width: 40%;
+    padding: 0.6em;
+
+}
+
+.limpiar-tiket{
+    width: 40%;
+    padding: 0.6em;
+}
+
+.limpiar-tiket button{
+    background: #2F353A;
+    border: none;
+    color: #fff;
+    padding: 0.3em;
 }
 
 .butt{
@@ -84,9 +101,9 @@
 
 .productos-enlistados{
     background: #c0c0c0;
-    padding: 4%;
+    padding: 3.5%;
     margin: 2%;
-    border-radius: 3px;
+    border-radius: 4px;
     /* Flex */
     display: flex;
     align-items: center;
@@ -96,33 +113,65 @@
 
 .productos-enlistados-descripcion{
     width: 95%;
-    margin-right: 2%;
+    margin-top: 2%;
+    margin-bottom: 4%;
     text-align: justify;
-} 
-
-.productos-enlistados-descripcion strong{
-    float: left;
 }
 
-.producto-enlistados{
-    width: 20%;
-}
-
-.pedido-enlistar{
+.productos-enlistados-header{
     width: 95%;
-    padding: 5%;
+    padding: 0.45em;
 
     /* Flex */
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.pedido-enlistar button{
+.title-enlistado strong{
+    font-size: 1.3em;
+    text-align: justify;
+}
+
+.delete-enlistado{
+    width: 100%;
+    text-align: right;
+}
+
+.delete-enlistado button{
     background: #d86060;
     color: #fff;
     border: none;
-    padding: 3%;
-}  
+    padding: 0.4em;
+}
+
+.prod-list-precio-cantidad{
+    width: 95%;
+    /* Flex */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button-cantidad{
+    text-align: right;
+    width: 30%;
+}
+
+.button-cantidad input{
+    width: 20%;
+    padding: 0.2em; 
+    text-align: center;
+}
+
+.button-cantidad button{
+    background: #2F353A;
+    color: #fff;
+    width: 30%;
+    padding: 0.2em;
+    border: none;
+}
+
 
 /* ------------------ */
