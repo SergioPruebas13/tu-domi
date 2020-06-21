@@ -155,7 +155,8 @@
 }
 
 .button-cantidad{
-    text-align: right;
+    /* text-align: right; */
+    min-width: 100px;
     width: 30%;
 }
 

@@ -9,13 +9,9 @@ var num_band = 0;
 
 function main (){
     // Obtener los datos de JSON
-     get_data();   
+     get_data(); 
+     verify_(); 
     
-    // Seleccionar menu de categoria  
-    //  $('body').on('click', '#categoria-menu-but', function(){
-    //     cargar_categorias_menu();
-    // }) 
-
     $('body').on('change', '#categoria-menu-combobox', function(){
         cargar_categorias_menu();
     });
@@ -37,12 +33,19 @@ function main (){
         var id_desc_menu = $(this).attr('id_desc_menu');
         // enlistar_producto_menu(id_desc_menu);
         GuardarDatosLS(id_desc_menu);
+        pintar_cantidad_carrito();
     }) 
 
     // -----------------------------Limpiar Tiket 
     $('body').on('click','#limpiar-tiket-button',function(){
         localStorage.removeItem('product_cart_menu');
         CargarDatosLS();
+        pintar_cantidad_carrito();
+    })
+
+     // -----------------------------Solicitud de envio 
+     $('body').on('click','.button-tiket',function(){
+        SendMessageTiket();
     })
 
     
@@ -53,7 +56,7 @@ function get_data (){
     var url = window.location.search;
     var url_id = url.split(`?id=`).join("");
    
-    var url = "https://sergiopruebas13.github.io/tu-domi/Data/data-base.json";    
+    var url = "http://127.0.0.1:5500/Data/data-base.json";    
         fetch(url)
         .then(function(res){
             return res.json();
@@ -105,14 +108,14 @@ function cargar_data (data){
 // ----------------------------------------------- Cargar las categorias en el combobox principal 
 function cargar_categorias_menu_combobox (){ 
     categoria_menu_array = main_productos[0].menu_obj;
-    var bandera = 0;
-    var bandera2 = 0;
     var selector = document.querySelector('#categoria-menu-combobox');
 
-           for (let i = 0; i < (categoria_menu_array.length); i++) {               
-                   selector.options[i] = new Option(`${categoria_menu_array[i].categoria_menu}`.replace(/\b[a-z]/g,c=>c.toUpperCase())); 
-           }
-           cargar_categorias_menu();
+        if (categoria_menu_array != undefined) {
+            for (let i = 0; i < (categoria_menu_array.length); i++) {               
+                selector.options[i] = new Option(`${categoria_menu_array[i].categoria_menu}`.replace(/\b[a-z]/g,c=>c.toUpperCase())); 
+            }
+            cargar_categorias_menu();
+        }           
 }
 
 //------------------------------------------------ Cargar el menu de la empresa
@@ -172,6 +175,8 @@ function cargar_categorias_menu (){
 // ----------------------------------------------- GUARDAR DATOS AL LS
 function GuardarDatosLS(id_del_producto){
 
+    var url = window.location.search;
+    var url_id = url.split(`?id=`).join("");
     var selec = document.querySelector('#categoria-menu-combobox');
     var band = 0;
     var arra_temp_menu =[];
@@ -190,6 +195,7 @@ function GuardarDatosLS(id_del_producto){
                      if (arra_temp_menu[i].id_descripcion_menu == id_del_producto) {
                          productos_Carro = 
                             {
+                                id_category: url_id*1,
                                 id_menu: `${selec.value.toLowerCase()}${arra_temp_menu[i].id_descripcion_menu}`,
                                 nombre_menu: arra_temp_menu[i].nombre,
                                 descripcion_menu: arra_temp_menu[i].descripcion,
@@ -242,7 +248,7 @@ function CargarDatosLS(){
                     <div class="productos-enlistados">
                         <div class="productos-enlistados-header">
                             <div class="delete-enlistado">
-                                <button id="">Eliminar de Pedido</button>
+                                <button id="" onclick="EliminarDatos('${product_cart_menu[i].id_menu}')">Eliminar de Pedido</button>
                             </div>
                             <div class="title-enlistado">
                                 <strong>${product_cart_menu[i].nombre_menu.replace(/\b[a-z]/g,c=>c.toUpperCase())}</strong>
@@ -333,6 +339,53 @@ function quitarCantidad (id_ls){
     calcular_total_tiket();
 }
 
+// ----------------------------------------------- Funcion para enviar mensaje en Whatsapp
+function SendMessageTiket (){
+
+    var product_cart_menu = JSON.parse(localStorage.getItem('product_cart_menu'));
+    var message = "";
+    var number = "573103368887";
+    var valor_total = 0;
+
+    if (product_cart_menu==null) {
+        
+    }else{
+        for (let i= 0; i < product_cart_menu.length; i++) {
+                valor_total = valor_total + (product_cart_menu[i].valor_menu * product_cart_menu[i].cantida_menu);
+                message += ` 
+                            | - PRODUCTO ${i+1}
+                            - Categoria: ${product_cart_menu[i].nombre_menu.replace(/\b[a-z]/g,c=>c.toUpperCase())}
+                            - Descripcion: ${product_cart_menu[i].descripcion_menu}
+                            - Cantidad: ${product_cart_menu[i].cantida_menu}
+                            - Valor: $ ${new Intl.NumberFormat().format((product_cart_menu[i].valor_menu * product_cart_menu[i].cantida_menu))} - |
+                             `;
+        }
+        message += ` ---------- Valor Total: ${new Intl.NumberFormat().format(valor_total)}`;
+    }   
+
+    // console.log(message);
+    
+    var url = `https://api.whatsapp.com/send?phone=${number}&text=${message}`;
+
+    window.open(url);
+}
+
+//-----------------------Eliminar tareas de Tiket de compras 
+function EliminarDatos(id_menu){
+    
+    var product_cart_menu = JSON.parse(localStorage.getItem('product_cart_menu'));
+
+    for (let i = 0; i < product_cart_menu.length; i++) {
+        if (product_cart_menu[i].id_menu == id_menu) {
+            product_cart_menu.splice(i,1);
+        }
+    }
+    localStorage.setItem('product_cart_menu',JSON.stringify(product_cart_menu));
+    CargarDatosLS();
+    calcular_total_tiket();
+    pintar_cantidad_carrito();
+}
+
 //------------------------------------------------ Funcion para Buscar si hay productos repetidos 
 function  buscarRepetido(id_del_producto){
     var bol = 0;
@@ -353,4 +406,50 @@ function  buscarRepetido(id_del_producto){
     return bol;
 }
 
+// ----------------------------------------------- Verificar tiket de pagina 
+function verify_ (){
+    if (verify_category() == 0) {
+        localStorage.removeItem('product_cart_menu');
+        CargarDatosLS();
+     }else{
+        CargarDatosLS();
+     }
+     pintar_cantidad_carrito();
+}
+
+// ----------------------------------------------- Verificar en que pagina se encuentra para borrar el tiket
+function verify_category (){
+
+    var url = window.location.search;
+    var url_id = url.split(`?id=`).join("");
+    var product_cart_menu = JSON.parse(localStorage.getItem('product_cart_menu'));
+    var retu = 0;
+
+    if (product_cart_menu==null) {
+        
+    }else{
+        for (let i = 0; i < product_cart_menu.length; i++) {
+            
+            if (product_cart_menu[i].id_category == (url_id*1)) {
+                retu = 1;
+                break;
+            }
+        }
+    }   
+    return retu;
+}
+
+// ----------------------------------------------- Pintar Cantidad de Carrito 
+function pintar_cantidad_carrito (){
+    var product_cart_menu = JSON.parse(localStorage.getItem('product_cart_menu'));
+    var cantidad_pedido_mostrar = document.querySelector('.cantidad-pedido-mostrar'); 
+
+    if (product_cart_menu == null || product_cart_menu.length == 0) {
+        cantidad_pedido_mostrar.innerHTML = "0";
+        $('.cantidad-pedido-mostrar').removeClass('Active-cantidad-pedido');
+    }else{
+        cantidad_pedido_mostrar.innerHTML = "1";
+        $('.cantidad-pedido-mostrar').addClass('Active-cantidad-pedido');
+    }
+}
 

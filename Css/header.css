@@ -50,22 +50,45 @@ header{
     margin-left: 3%;
     width: 40px;
 }
+ /* CARRITO DE COMPRAS  */
 
-.carrito-pedido{
-    text-align: center;
-    min-width: 100px;
-    /* width: 30%; */
-}
+ .carrito-pedido{
+     text-align: center;
+     min-width: 100px;
+     /* width: 30%; */
+ }
+ 
+ .carrito-pedido img{
+     width: 50px;
+     /* width: 30%; */
+ }
+ 
+ .carrito-pedido button{
+     background: #38B6FF;
+     outline:none;
+     border: none;
+ }
 
-.carrito-pedido img{
-    width: 50px;
-    /* width: 30%; */
-}
-
-.carrito-pedido button{
-    background: #38B6FF;
-    outline:none;
+ .cantidad-pedido-mostrar{
+    position: fixed;
+    top: 0;
+    margin-left: 43px;
+    margin-top: 0.1em;
+    background: gray;
+    width: 1.35em;
+    height: 1.35em;
+    border-radius: 50%;
     border: none;
-}
+    /*  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .Active-cantidad-pedido{
+     background: red;
+ }
+
+ /* ------------------- */
 
 
